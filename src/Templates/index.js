@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import Banner from "../components/Banner";
-import { getMovieBanner } from "../reducers/banner";
-const HomeTemPlates = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMovieBanner());
-  }, []);
+import { Outlet } from "react-router-dom";
+
+import { ThemeProvider } from "styled-components";
+import { theme } from "../GlobalStyles";
+import HomePage from "../Page/HomePage";
+import Footer from "../Page/HomePage/Footer";
+const HomeTemplates = () => {
   return (
-    <div>
-      <Banner />
-    </div>
+    <ThemeProvider theme={theme}>
+      <HomePage />
+      <Footer />
+      <Outlet />
+    </ThemeProvider>
   );
 };
 
-export default HomeTemPlates;
+export default HomeTemplates;
