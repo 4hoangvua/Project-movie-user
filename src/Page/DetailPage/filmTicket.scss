@@ -1,0 +1,41 @@
+.container {
+  max-width: 1280px;
+  padding: 0 110px;
+  .row {
+    .col-left {
+      .content {
+        .wrapper {
+          h2 {
+          }
+          .showtimes {
+            border: 1px solid #ccc;
+            padding: 25px;
+            padding-top: 20px;
+            .schedule {
+              .week {
+                margin-right: 12px;
+                width: 62px;
+                border: 1px solid #be185d;
+                height: 60px;
+                border-radius: 5px;
+                .number {
+                  background-color: #a50064;
+
+                  width: 100%;
+                  height: 70%;
+                  color: #fff;
+                  font-weight: 500;
+                  font-size: 1.3rem;
+                }
+                .day {
+                  color: #a50064;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
