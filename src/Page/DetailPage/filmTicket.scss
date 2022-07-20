@@ -1,0 +1,239 @@
+.container {
+  max-width: 1280px;
+  padding: 0 110px;
+  .row {
+    padding: 20px 0;
+    .col-left {
+      padding-left: 0;
+      padding-right: 20px;
+      .content {
+        .wrapper {
+          h2 {
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 20px;
+            padding-bottom: 10px;
+          }
+          .showtimes {
+            border: 1px solid #e0e0e0;
+            padding: 10px 20px;
+
+            .schedule {
+              .active {
+                border: 1px solid #be185d !important;
+
+                .number {
+                  background-color: #be185d !important;
+                }
+              }
+              .week {
+                cursor: pointer;
+                margin-right: 12px;
+                width: 62px;
+                border: 1px solid #e0e0e0;
+
+                height: 60px;
+                border-radius: 5px;
+                .number {
+                  background-color: #e0e0e0;
+
+                  width: 100%;
+                  height: 70%;
+                  color: #000;
+                  font-weight: 500;
+                  font-size: 1.2rem;
+                }
+                .day {
+                  color: #a50064;
+                  font-size: 12px;
+                  height: 26px;
+                  line-height: 26px;
+                }
+              }
+            }
+          }
+          .cinema {
+            padding: 10px 20px;
+            border: 1px solid #e0e0e0;
+            border-top: unset;
+            .wrapper {
+              .cinema-btn {
+                margin-right: 12px;
+                cursor: pointer;
+                .cinema-wrapper {
+                  border: 1px solid #e0e0e0;
+                  border-radius: 5px;
+                  padding: 5px;
+                  img {
+                    width: 38px;
+                  }
+                }
+                span {
+                  font-size: 0.75rem;
+                  color: #737373;
+                  padding-top: 5px;
+                }
+              }
+            }
+          }
+          .cinema-time {
+            border: 1px solid #e0e0e0;
+            border-top: unset;
+            padding: 12px 20px;
+            .address {
+              img {
+                width: 32px;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+                margin-right: 12px;
+              }
+              .address-title {
+                h4 {
+                  font-size: 0.9375rem;
+                  margin: 0;
+                }
+                span {
+                  font-size: 12px;
+                  color: #737373;
+                }
+              }
+            }
+            h3 {
+              font-size: 0.9375rem;
+              margin-top: 6px;
+              margin: 10px 0 10px;
+            }
+            .movie-time {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              button {
+                border: 1px solid #0284c7;
+                border-radius: 4px;
+                color: #0284c7;
+                width: 80px;
+                height: 32px;
+                font-size: 0.9375rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .col-right {
+      padding-right: 0;
+      padding-left: 20px;
+      .content {
+        padding-top: 20px;
+        .wrapper {
+          .rate {
+            .item {
+              padding: 20px;
+              justify-content: center;
+              width: 330px;
+              height: 207px;
+              border: 1px solid #e0e0e0;
+              border-radius: 5px;
+              .icon {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 14px;
+                img {
+                  width: 64px;
+                  margin-right: 5px;
+                }
+                .rate-percent {
+                  font-size: 18px;
+                  font-weight: 600;
+                }
+                .rate-number {
+                  font-size: 14px;
+                  color: #737373;
+                }
+                .rate-view {
+                  width: 106px;
+                  height: 30px;
+                  border: 1px solid #a50064e6;
+                  border-radius: 5px;
+                  color: #a50064e6;
+                  font-size: 12px;
+                  font-weight: 600;
+                  &:hover {
+                    background-color: #fce7f3;
+                  }
+                }
+              }
+              .comment {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .comment-item {
+                  div {
+                    display: flex;
+                    align-items: center;
+                    img {
+                      width: 32px;
+                    }
+                    span {
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .related {
+            margin-top: 20px;
+            h3 {
+              font-size: 20px;
+              font-weight: 500;
+            }
+            .related-item {
+              margin: 20px 0;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              border-bottom: 1px solid #e0e0e0;
+              padding-bottom: 20px;
+              img {
+                width: 80px;
+                height: 120px;
+                margin-right: 14px;
+              }
+              a {
+                .age {
+                  background-color: #ddbc3f;
+                  width: 40px;
+                  color: #fff;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 12px;
+                  padding: 2px;
+                  border-radius: 4px;
+                  font-weight: bold;
+                  margin-bottom: 4px;
+                }
+                text-decoration: none;
+                .related-title {
+                  font-size: 15px;
+                  color: #232323;
+                }
+                span {
+                  color: #737373;
+                  font-size: 13px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
