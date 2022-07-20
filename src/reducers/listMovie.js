@@ -5,21 +5,24 @@ const initialState = {
   listMovie: [],
 };
 
-export const getListMovie = createAsyncThunk("movie/getListMovie", async () => {
-  try {
-    const data = await movieAPI.getMovieShowing();
-    return data;
-  } catch (error) {
-    throw error.data;
+export const getListMovie = createAsyncThunk(
+  "movie/getListMovie",
+  async (page) => {
+    try {
+      const data = await movieAPI.getMovieShowing(page);
+      return data;
+    } catch (error) {
+      throw error.data;
+    }
   }
-});
+);
 const listMovie = createSlice({
   name: "movie",
   initialState: initialState,
   reducers: {},
   extraReducers: {
     [getListMovie.fulfilled]: (state, { payload }) => {
-      state.listMovie = payload;
+      state.listMovie = payload.items;
     },
   },
 });

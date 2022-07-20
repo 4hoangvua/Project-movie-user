@@ -1,5 +1,13 @@
 import React from "react";
-import { Nav, NavLogo, Logo, Content, NavList, NavItem } from "./NavbarElement";
+import {
+  Nav,
+  NavLogo,
+  Logo,
+  Content,
+  NavList,
+  NavItem,
+  NavContainer,
+} from "./NavbarElement";
 const NavBar = () => {
   return (
     <>
@@ -9,9 +17,15 @@ const NavBar = () => {
           <Content>Exxmon</Content>
         </NavLogo>
         <NavList>
-          <NavItem href="#">TV Series</NavItem>
-          <NavItem href="#">Movies</NavItem>
-          <NavItem href="#">Animes</NavItem>
+          <NavContainer>
+            <NavItem href="#" disabled={true}>
+              TV Series
+            </NavItem>
+            <NavItem href="#">Movies</NavItem>
+            <NavItem href="#" disabled={true}>
+              Animes
+            </NavItem>
+          </NavContainer>
         </NavList>
       </Nav>
     </>

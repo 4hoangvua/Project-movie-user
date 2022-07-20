@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { RiMovie2Line } from "react-icons/ri";
 export const Nav = styled.div`
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  /* background: red; */
 `;
 export const NavLogo = styled.div`
   display: flex;
@@ -22,21 +20,30 @@ export const Content = styled.p`
 `;
 export const NavList = styled.div`
   width: 70%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  overflow: hidden;
+  max-height: 4.375rem;
 `;
 export const NavItem = styled.a`
+  border-bottom: 2px solid transparent;
+  ${(props) =>
+    props.disabled
+      ? `
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.7;
+    text-decoration: none;`
+      : ` 
+      border-bottom: 2px solid #d6413a;
+ `}
+  color: ${({ theme }) => theme.c.primary} !important;
   display: block;
   text-decoration: none;
   margin-right: 1rem;
   text-align: center;
   color: ${({ theme }) => theme.c.primary};
-  opacity: 0.7;
-  &:hover {
-    border-bottom: 2px solid #d6413a;
-    color: ${({ theme }) => theme.c.primary} !important;
-    opacity: 1;
-  }
+  opacity: 1;
+`;
+export const NavContainer = styled.div`
+  display: flex;
+  justify-content: left;
+  align-items: center;
 `;

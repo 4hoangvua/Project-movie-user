@@ -1,7 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./filmDetail.scss";
 
 function FilmDetail() {
+  const { movieDetail } = useSelector((state) => state.movieD);
+  console.log(movieDetail.maPhim);
+  // goi  /api/QuanLyRap/LayThongTinLichChieuPhim nhap (maPhim) de lay du lieu
   return (
     <div className="container-fluid">
       <div className="row">

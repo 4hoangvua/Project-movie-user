@@ -9,6 +9,7 @@ import {
   CardImg,
   ArrowPlay,
   ContainerModal,
+  Image,
 } from "./CarouseElement";
 const Carouse = ({ theme }) => {
   const { bannerImage } = useSelector((state) => state.ban);
@@ -32,9 +33,8 @@ const Carouse = ({ theme }) => {
               <>
                 <CardImg active={index + 1 === current ? true : false}>
                   {index + 1 === current && (
-                    <img src={slide.hinhAnh} alt={slide.maPhim} />
+                    <Image linkImage={slide.hinhAnh} descImage={slide.maPhim} />
                   )}
-                  ;
                 </CardImg>
                 {index + 1 === current && (
                   <ModelVideo

@@ -24,3 +24,7 @@ export const LeftSide = styled.div`
 export const LeftPage = styled.div`
   width: 70%;
 `;
+export const ContainerShowTime = styled.div`
+  width: 100%;
+  margin-top: 3.125rem;
+`;
