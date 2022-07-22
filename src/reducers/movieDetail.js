@@ -1,21 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import movieAPI from "../Services/movieAPI";
 
 const inititalState = {
   movieDetail: [],
-  lichChieu: [],
 };
 
-const userSlice = createSlice({
+export const getThongTinLichChieuPhim = createAsyncThunk(
+  "movieDetail/getThongTinLichChieuPhim",
+  async (maPhim) => {
+    const data = movieAPI.getThongTinLichChieuPhim(maPhim);
+    return data;
+  }
+);
+const movieDetail = createSlice({
   name: "movieDetail",
   initialState: inititalState,
-  reducers: {
-    getMovieDetail: (state, { payload }) => {
+  reducers: {},
+  extraReducers: {
+    [getThongTinLichChieuPhim.fulfilled]: (state, { payload }) => {
       state.movieDetail = payload;
-    },
-    getThongTinLichChieuPhim: (state, { payload }) => {
-      state.lichChieu = payload;
     },
   },
 });
-export const { getMovieDetail, getThongTinLichChieuPhim } = userSlice.actions;
-export default userSlice.reducer;
+export default movieDetail.reducer;

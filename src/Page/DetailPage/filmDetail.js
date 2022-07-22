@@ -6,7 +6,7 @@ import "./filmDetail.scss";
 
 function FilmDetail() {
   const { movieDetail } = useSelector((state) => state.movieD);
-
+  console.log(movieDetail);
   const dispatch = useDispatch();
 
   return (

@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 function FlimTicket() {
   const { movieDetail } = useSelector((state) => state.movieD);
-  console.log(movieDetail);
 
   return (
     <div className="container">

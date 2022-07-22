@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ModelVideo from "../../../components/modals/ModalVideo";
-import {
-  getMovieDetail,
-  getThongTinLichChieuPhim,
-} from "../../../reducers/movieDetail";
-
+import { getThongTinLichChieuPhim } from "../../../reducers/movieDetail";
 import {
   ContainerMovie,
   ColCard,
@@ -38,8 +34,7 @@ const ItemMovie = ({ movie }) => {
     setShowHover(!showHover);
   };
   const handleDetail = () => {
-    dispatch(getMovieDetail(movie));
-    dispatch(getThongTinLichChieuPhim(movie));
+    dispatch(getThongTinLichChieuPhim(movie.maPhim));
   };
 
   return (
