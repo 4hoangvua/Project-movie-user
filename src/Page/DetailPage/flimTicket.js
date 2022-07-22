@@ -1,7 +1,11 @@
 import React from "react";
 import "./filmTicket.scss";
+import { useSelector, useDispatch } from "react-redux";
 
-function flimTicket() {
+function FlimTicket() {
+  const { movieDetail } = useSelector((state) => state.movieD);
+  console.log(movieDetail);
+
   return (
     <div className="container">
       <div className="row">
@@ -9,8 +13,7 @@ function flimTicket() {
           <div className="content">
             <div className="wrapper">
               <h2>
-                Lịch chiếu{" "}
-                <span>Thám Tử Lừng Danh Conan: Nàng Dâu Halloween</span>
+                Lịch chiếu <span>{movieDetail.tenPhim}</span>
               </h2>
               <div className="showtimes">
                 <div className="schedule d-flex justify-content-start">
@@ -63,22 +66,13 @@ function flimTicket() {
                   <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
                     <div className="cinema-wrapper">
                       <img
-                        src="https://static.mservice.io/next-js/_next/static/public/cinema/dexuat-icon.svg"
-                        alt="cinema"
-                      />
-                    </div>
-                    <span>Tất cả</span>
-                  </div>
-                  <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
-                    <div className="cinema-wrapper">
-                      <img
                         src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fplacebrand%2Fs%2Fmomo-upload-api-190709165424-636982880641515855.jpg&w=48&q=75"
                         alt="cinema"
                       />
                     </div>
                     <span>CGV</span>
                   </div>
-                  <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
+                  {/* <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
                     <div className="cinema-wrapper">
                       <img
                         src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fblogscontents%2Fmomo-upload-api-210604170617-637584231772974269.png&w=48&q=75"
@@ -95,7 +89,7 @@ function flimTicket() {
                       />
                     </div>
                     <span>Galaxy</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="cinema-time">
@@ -268,4 +262,4 @@ function flimTicket() {
   );
 }
 
-export default flimTicket;
+export default FlimTicket;

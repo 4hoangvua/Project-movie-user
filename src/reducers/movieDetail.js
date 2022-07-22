@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const inititalState = {
   movieDetail: [],
+  lichChieu: [],
 };
 
 const userSlice = createSlice({
@@ -11,7 +12,10 @@ const userSlice = createSlice({
     getMovieDetail: (state, { payload }) => {
       state.movieDetail = payload;
     },
+    getThongTinLichChieuPhim: (state, { payload }) => {
+      state.lichChieu = payload;
+    },
   },
 });
-export const { getMovieDetail } = userSlice.actions;
+export const { getMovieDetail, getThongTinLichChieuPhim } = userSlice.actions;
 export default userSlice.reducer;
