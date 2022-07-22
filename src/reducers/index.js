@@ -4,6 +4,7 @@ import listMovie from "./listMovie";
 import listLogo from "./showTime";
 import users from "./user";
 import movieDetail from "./movieDetail";
+
 const rootReducer = combineReducers({
   ban: banner,
   movie: listMovie,

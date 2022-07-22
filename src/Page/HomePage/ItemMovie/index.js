@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ModelVideo from "../../../components/modals/ModalVideo";
-import { getMovieDetail } from "../../../reducers/movieDetail";
+import {
+  getMovieDetail,
+  getThongTinLichChieuPhim,
+} from "../../../reducers/movieDetail";
 
 import {
   ContainerMovie,
@@ -36,7 +39,9 @@ const ItemMovie = ({ movie }) => {
   };
   const handleDetail = () => {
     dispatch(getMovieDetail(movie));
+    dispatch(getThongTinLichChieuPhim(movie));
   };
+
   return (
     <>
       <ContainerMovie onMouseEnter={handleHover}>
@@ -49,7 +54,7 @@ const ItemMovie = ({ movie }) => {
                   <LogoPlay onClick={() => setShowModal(!showModal)} />
                 </CardPlay>
                 <CardBooking>
-                  <Booking onClick={handleDetail} to="detail">
+                  <Booking onClick={handleDetail} to="detail/:maPhim">
                     Booking
                   </Booking>
                 </CardBooking>

@@ -16,6 +16,13 @@ const movieAPI = {
       },
     });
   },
+  getThongTinLichChieuPhim: (maPhim) => {
+    return axiosClient.get("QuanLyRap/LayThongTinLichChieuPhim", {
+      params: {
+        maPhim: maPhim,
+      },
+    });
+  },
   getMovieBanner: () => {
     return axiosClient.get("QuanLyPhim/LayDanhSachBanner");
   },
