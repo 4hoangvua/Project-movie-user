@@ -5,13 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 function FlimTicket() {
   const { movieDetail } = useSelector((state) => state.movieD);
 
-  const rap = movieDetail.heThongRapChieu.map((item, index) => {
-    console.log("item", item);
-    console.log("cumrap", item.cumRapChieu);
-    return item.tenHeThongRap;
+  movieDetail.heThongRapChieu?.forEach((item, index) => {
+    for (let key in item.cumRapChieu) {
+      console.log(item.cumRapChieu[key].tenCumRap);
+    }
   });
-
-  console.log("rap", rap);
 
   return (
     <div className="container">
@@ -70,7 +68,7 @@ function FlimTicket() {
               </div>
 
               <div className="cinema d-flex">
-                {movieDetail.heThongRapChieu.map((item, index) => {
+                {movieDetail.heThongRapChieu?.map((item, index) => {
                   return (
                     <div key={index}>
                       <div className="wrapper d-flex justify-content-start">
@@ -86,67 +84,38 @@ function FlimTicket() {
                 })}
               </div>
               <div className="cinema-time">
-                <div className="address d-flex">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fplacebrand%2Fs%2Fmomo-upload-api-190709165424-636982880641515855.jpg&w=48&q=75"
-                    alt="address"
-                  />
-                  <div className="address-title d-flex flex-column">
-                    <h4>Lotte Cộng Hòa</h4>
-                    <span>Tầng 7, Cantavil Premier, Số 1 đường cộng hoà</span>
-                  </div>
-                </div>
-                <h3>2D Phụ đề</h3>
-                <div className="movie-time">
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                </div>
-              </div>
-              <div className="cinema-time">
-                <div className="address d-flex">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fplacebrand%2Fs%2Fmomo-upload-api-190709165424-636982880641515855.jpg&w=48&q=75"
-                    alt="address"
-                  />
-                  <div className="address-title d-flex flex-column">
-                    <h4>Lotte Cộng Hòa</h4>
-                    <span>Tầng 7, Cantavil Premier, Số 1 đường cộng hoà</span>
-                  </div>
-                </div>
-                <h3>2D Phụ đề</h3>
-                <div className="movie-time">
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                </div>
-              </div>
-              <div className="cinema-time">
-                <div className="address d-flex">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fplacebrand%2Fs%2Fmomo-upload-api-190709165424-636982880641515855.jpg&w=48&q=75"
-                    alt="address"
-                  />
-                  <div className="address-title d-flex flex-column">
-                    <h4>Lotte Cộng Hòa</h4>
-                    <span>Tầng 7, Cantavil Premier, Số 1 đường cộng hoà</span>
-                  </div>
-                </div>
-                <h3>2D Phụ đề</h3>
-                <div className="movie-time">
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                  <button>17:00</button>
-                  <button>19:00</button>
-                  <button>22:00</button>
-                </div>
+                {movieDetail.heThongRapChieu?.map((item, index) => {
+                  // let key;
+                  // for (let key in item.cumRapChieu) {
+                  //   item.cumRapChieu[key].tenCumRap;
+                  // }
+                  return (
+                    <div className="wrapper">
+                      <div className="address d-flex">
+                        <img src={item.logo} alt="address" />
+                        <div className="address-title d-flex flex-column">
+                          <h4>{item.tenHeThongRap}</h4>
+                          <span>{item.cumRapChieu[0].diaChi}</span>
+                        </div>
+                      </div>
+                      <h3>2D Phụ đề</h3>
+                      <div className="movie-time">
+                        <button style={{ width: "200px" }}>
+                          {
+                            // item.cumRapChieu[index].lichChieuPhim[i]
+                            //   .ngayChieuGioChieu
+                          }
+                        </button>
+                      </div>
+                      {/* <div>
+                          {
+                            item.cumRapChieu[index].lichChieuPhim[index + 1]
+                              .maLichChieu
+                          }
+                        </div> */}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

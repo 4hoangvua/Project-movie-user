@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeTemplates />} />
         <Route path="singin" element={<Login />} />
-        <Route path="detail/:id" element={<Detail />}></Route>
+        <Route path="detail/:maPhim" element={<Detail />}></Route>
       </Routes>
       <GlobalStyles />
     </Router>
