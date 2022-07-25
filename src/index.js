@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store";
+import { ValidUserContextProvider } from "./authCheck";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />
+    <ValidUserContextProvider>
+      <App />
+    </ValidUserContextProvider>
   </Provider>
 );
