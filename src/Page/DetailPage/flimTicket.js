@@ -5,6 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 function FlimTicket() {
   const { movieDetail } = useSelector((state) => state.movieD);
 
+  const rap = movieDetail.heThongRapChieu.map((item, index) => {
+    console.log("item", item);
+    console.log("cumrap", item.cumRapChieu);
+    return item.tenHeThongRap;
+  });
+
+  console.log("rap", rap);
+
   return (
     <div className="container">
       <div className="row">
@@ -60,36 +68,22 @@ function FlimTicket() {
                   </div>
                 </div>
               </div>
-              <div className="cinema">
-                <div className="wrapper d-flex justify-content-start">
-                  <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
-                    <div className="cinema-wrapper">
-                      <img
-                        src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fplacebrand%2Fs%2Fmomo-upload-api-190709165424-636982880641515855.jpg&w=48&q=75"
-                        alt="cinema"
-                      />
+
+              <div className="cinema d-flex">
+                {movieDetail.heThongRapChieu.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <div className="wrapper d-flex justify-content-start">
+                        <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
+                          <div className="cinema-wrapper">
+                            <img src={item.logo} alt="cinema" />
+                          </div>
+                          <span>{item.maHeThongRap}</span>
+                        </div>
+                      </div>
                     </div>
-                    <span>CGV</span>
-                  </div>
-                  {/* <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
-                    <div className="cinema-wrapper">
-                      <img
-                        src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fblogscontents%2Fmomo-upload-api-210604170617-637584231772974269.png&w=48&q=75"
-                        alt="cinema"
-                      />
-                    </div>
-                    <span>Lotte</span>
-                  </div>
-                  <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
-                    <div className="cinema-wrapper">
-                      <img
-                        src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fcinema%2Fmomo-upload-api-211123095138-637732578984425272.png&w=48&q=75"
-                        alt="cinema"
-                      />
-                    </div>
-                    <span>Galaxy</span>
-                  </div> */}
-                </div>
+                  );
+                })}
               </div>
               <div className="cinema-time">
                 <div className="address d-flex">
