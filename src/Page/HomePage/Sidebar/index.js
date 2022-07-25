@@ -47,7 +47,7 @@ const Sidebar = () => {
             </a>
           </SideItem>
           <SideItem>
-            <SideLogin to="singin">Login</SideLogin>
+            <SideLogin to="signin">Login</SideLogin>
           </SideItem>
         </SideList>
       </SideMenu>
