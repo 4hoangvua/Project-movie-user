@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function FlimTicket() {
   const { movieDetail } = useSelector((state) => state.movieD);
-
+  console.log(movieDetail);
   movieDetail.heThongRapChieu?.forEach((item, index) => {
     for (let key in item.cumRapChieu) {
       console.log(item.cumRapChieu[key].tenCumRap);

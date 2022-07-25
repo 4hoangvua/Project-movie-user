@@ -20,7 +20,7 @@ function App() {
             </Layout>
           }
         />
-        <Route path="detail/:id" element={<Detail />}></Route>
+        <Route path="detail/:maPhim" element={<Detail />}></Route>
       </Routes>
       <GlobalStyles />
     </Router>
