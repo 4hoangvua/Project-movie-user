@@ -34,5 +34,12 @@ const movieAPI = {
       },
     });
   },
+  getDanhSachPhim: (id) => {
+    return axiosClient.get("QuanLyPhim/LayDanhSachPhim", {
+      params: {
+        maNhom: id,
+      },
+    });
+  },
 };
 export default movieAPI;
