@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalSibar from "../../../components/modals/ModalSibar";
 import {
   Nav,
   NavLogo,
@@ -7,8 +8,14 @@ import {
   NavList,
   NavItem,
   NavContainer,
+  NavToggle,
+  Toggle,
 } from "./NavbarElement";
 const NavBar = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleToggle = () => {
+    setShowModal(!showModal);
+  };
   return (
     <>
       <Nav>
@@ -26,7 +33,11 @@ const NavBar = () => {
               Animes
             </NavItem>
           </NavContainer>
+          <NavToggle onClick={handleToggle}>
+            <Toggle></Toggle>
+          </NavToggle>
         </NavList>
+        <ModalSibar showModal={showModal} setShowModal={setShowModal} />
       </Nav>
     </>
   );

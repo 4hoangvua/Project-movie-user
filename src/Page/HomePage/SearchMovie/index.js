@@ -9,7 +9,6 @@ import {
   ItemSMovie,
   ImgMovie,
   ContentMovie,
-  LogoSearch,
   Search,
   Selected,
   Option,
@@ -23,8 +22,6 @@ const SearchMovie = () => {
   const { listTheaterInfo } = useSelector((state) => state.show);
   const [isSelected, setIsSelected] = useState();
   const [isMovie, setIsMovie] = useState();
-  const [isCheck, setIsCheck] = useState(false);
-  const [isSearchMovie, setIsSearchMovie] = useState();
   const isMouted = useRef(false);
   const theater = useRef(0);
   const movie = useRef(0);

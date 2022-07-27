@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { RiMovie2Line } from "react-icons/ri";
+import { GoThreeBars } from "react-icons/go";
+import { device } from "../../../common/device";
 export const Nav = styled.div`
   display: flex;
   justify-content: left;
@@ -12,15 +14,35 @@ export const NavLogo = styled.div`
   width: 30%;
 `;
 export const Logo = styled(RiMovie2Line)`
+  width: 50%;
   color: #d6413a;
   font-size: 1.875rem;
+  @media ${device.desktopL} {
+    width: 20%;
+    font-size: 40px;
+  }
+  @media ${device.tablet} {
+    margin-top: unset;
+    font-size: 30px;
+    width: 30%;
+  }
 `;
 export const Content = styled.p`
-  margin-top: 5px;
+  color: ${({ theme }) => theme.c.primary};
+  width: 50%;
+  font-size: 1rem;
+  @media ${device.desktopL} {
+    font-size: 30px;
+  }
+  @media ${device.tablet} {
+    margin-top: unset;
+    font-size: 16px;
+  }
 `;
 export const NavList = styled.div`
   width: 70%;
   max-height: 4.375rem;
+  position: relative;
 `;
 export const NavItem = styled.a`
   border-bottom: 2px solid transparent;
@@ -41,9 +63,30 @@ export const NavItem = styled.a`
   text-align: center;
   color: ${({ theme }) => theme.c.primary};
   opacity: 1;
+  font-size: 1.5rem;
 `;
 export const NavContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+  position: relative;
+  @media ${device.mobileK} {
+    display: none;
+  }
+`;
+export const NavToggle = styled.div`
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media ${device.tablet} {
+    display: flex;
+  }
+`;
+export const Toggle = styled(GoThreeBars)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.c.primary};
+  position: absolute;
+  top: 0;
+  right: 0;
 `;

@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { AiOutlineStar, AiOutlinePlayCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { device } from "../../../common/device";
 export const ContainerMovie = styled.div`
   width: 25%;
   margin-bottom: 1rem;
   cursor: pointer;
+  @media ${device.tablet} {
+    width: 50%;
+  }
 `;
 export const ColCard = styled.div`
   height: 23rem;
@@ -86,18 +90,27 @@ export const Booking = styled(Link)`
   }
 `;
 export const LogoPlay = styled(AiOutlinePlayCircle)`
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: ${({ theme }) => theme.c.secondary};
+  @media ${device.tablet} {
+    font-size: 4rem;
+  }
 `;
 export const ContainerContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: space-between;
+  align-items: left;
 `;
 export const Content = styled.abbr.attrs((props) => ({
   title: props.nameMovie,
 }))`
-  flex: 1;
+  padding-top: 5px;
+  height: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.c.primary};
   font-style: italic;
   &[title] {
     text-decoration: none !important;
@@ -110,7 +123,7 @@ export const Content = styled.abbr.attrs((props) => ({
   }
 `;
 export const DescStart = styled.span`
-  flex: 1;
+  height: 50%;
   font-size: 1rem;
   padding-right: 5px;
   color: ${({ theme }) => theme.c.secondary};

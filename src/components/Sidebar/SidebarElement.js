@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 export const SideMenu = styled.div`
   & > p {
+    font-size: 1rem;
     color: ${({ theme }) => theme.c.primary};
     opacity: 0.7;
   }
@@ -25,11 +26,8 @@ export const SideItem = styled.li`
     color: ${({ theme }) => theme.c.primary};
     opacity: 0.7;
     margin-top: 1.3125rem;
+    font-size: 1rem;
     padding-left: 1rem;
-  }
-  p {
-    position: relative;
-    bottom: 0.625rem;
   }
 
   &:hover {

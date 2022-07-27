@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "../../components/Sidebar";
 import SearchMovie from "./SearchMovie";
 import NavBar from "./NavBar";
 import ContentPage from "./ContentPage";

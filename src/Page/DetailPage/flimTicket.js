@@ -3,13 +3,13 @@ import "./filmTicket.scss";
 import { useSelector, useDispatch } from "react-redux";
 
 function FlimTicket() {
-  const { movieDetail } = useSelector((state) => state.movieD);
-  console.log(movieDetail);
-  movieDetail.heThongRapChieu?.forEach((item, index) => {
-    for (let key in item.cumRapChieu) {
-      console.log(item.cumRapChieu[key].tenCumRap);
-    }
+  const { movieDetail, listHeThongRap } = useSelector((state) => {
+    return {
+      movieDetail: state.movieD.movieDetail,
+      listHeThongRap: state.movieD.movieDetail.heThongRapChieu,
+    };
   });
+  console.log(listHeThongRap);
 
   return (
     <div className="container">

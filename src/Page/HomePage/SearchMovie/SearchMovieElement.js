@@ -1,12 +1,19 @@
 import styled from "styled-components";
+import { device } from "../../../common/device";
 export const ContainerSearch = styled.div`
   width: 100%;
   padding-left: 1rem;
 `;
 export const InputSearch = styled.input`
+  font-size: 1rem;
+  color: ${({ theme }) => theme.c.primary};
   width: 100%;
-  border: transparent;
+  border: 1px solid transparent;
   margin-bottom: 5px;
+  &:focus {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.c.primary};
+  }
 `;
 
 export const Search = styled.div`
@@ -37,17 +44,26 @@ export const ItemSMovie = styled.div`
   margin-bottom: 1rem;
   background: #fff;
   border-radius: 10px;
-  overflow: hidden;
   padding: 0 5px;
+  @media ${device.tablet} {
+    box-sizing: content-box;
+    height: 20rem;
+    margin-bottom: unset;
+  }
+  @media ${device.mobileK} {
+    height: 27rem;
+  }
 `;
 export const ImgMovie = styled.img.attrs((props) => ({
   src: props.linkImage,
   alt: props.descImage,
 }))`
   height: 50%;
-  width: 6.25rem;
+  width: 50%;
   object-fit: cover;
-  object-position: top;
+  @media ${device.mobileK} {
+    width: 100%;
+  }
 `;
 export const ContentMovie = styled.div`
   height: 50%;
@@ -56,10 +72,15 @@ export const ContentMovie = styled.div`
 export const Selected = styled.select`
   width: 100%;
   margin-bottom: 0.625rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.c.primary};
 `;
-export const Option = styled.option``;
+export const Option = styled.option`
+  font-size: 1rem;
+`;
 export const Title = styled.div`
-  font-size: small;
+  font-size: 1rem;
   font-weight: bold;
   color: ${({ theme }) => theme.c.primary};
 `;
@@ -71,7 +92,7 @@ export const ShowTimeTheaters = styled.div`
 `;
 export const ItemTime = styled.div`
   flex: 1;
-  font-size: small;
+  font-size: 0.8rem;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 5px;

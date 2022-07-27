@@ -69,7 +69,9 @@ const ShowTimes = () => {
                     index === isActiveTheater.activeTheater ? true : false
                   }
                 >
-                  <NameTheater>{list.tenCumRap}</NameTheater>
+                  <NameTheater nameTheater={list.tenCumRap}>
+                    <h4>{list.tenCumRap}</h4>
+                  </NameTheater>
                   <TextAddress textAddress={list.diaChi}>
                     <AddressTheater>{list.diaChi}</AddressTheater>
                   </TextAddress>
