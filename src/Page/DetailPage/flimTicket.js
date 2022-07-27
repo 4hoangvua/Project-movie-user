@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./filmTicket.scss";
 import { useSelector, useDispatch } from "react-redux";
+import { getDanhSachPhim } from "../../reducers/listFilm";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function FlimTicket() {
-  const { movieDetail, listHeThongRap } = useSelector((state) => {
-    return {
-      movieDetail: state.movieD.movieDetail,
-      listHeThongRap: state.movieD.movieDetail.heThongRapChieu,
-    };
+  // const {} = useSelector((state) => state.movieD);
+  const { movieDetail, listHeThongRapChieu, listMovie } = useSelector(
+    (state) => {
+      return {
+        movieDetail: state.movieD.movieDetail,
+        listHeThongRapChieu: state.movieD.movieDetail.heThongRapChieu,
+        listMovie: state.listFilm.listFilm,
+      };
+    }
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDanhSachPhim("gp01"));
+  }, []);
+
+  const list = listMovie.filter((item, index) => {
+    return item.dangChieu == true;
   });
   console.log(listHeThongRap);
 
+  const nowList = list.slice(0, 4);
   return (
     <div className="container">
       <div className="row">
@@ -20,103 +35,126 @@ function FlimTicket() {
               <h2>
                 Lịch chiếu <span>{movieDetail.tenPhim}</span>
               </h2>
-              <div className="showtimes">
-                <div className="schedule d-flex justify-content-start">
-                  <div className="week active flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 2</span>
+              {movieDetail.sapChieu ? (
+                <div>
+                  <div className="showtimes">
+                    <div className="schedule d-flex justify-content-start">
+                      <div className="week active flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 2</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 3</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 4</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 5</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 6</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Thứ 7</span>
+                      </div>
+                      <div className="week flex-column d-flex justify-content-center align-items-center">
+                        <span className="number d-flex justify-content-center align-items-center">
+                          21
+                        </span>
+                        <span className="day">Chủ nhật</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 3</span>
+
+                  <div className="cinema d-flex">
+                    {movieDetail.heThongRapChieu?.map((item, index) => {
+                      return (
+                        <div key={index}>
+                          <div className="wrapper d-flex justify-content-start">
+                            <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
+                              <div className="cinema-wrapper">
+                                <img src={item.logo} alt="cinema" />
+                              </div>
+                              <span>{item.maHeThongRap}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 4</span>
-                  </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 5</span>
-                  </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 6</span>
-                  </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Thứ 7</span>
-                  </div>
-                  <div className="week flex-column d-flex justify-content-center align-items-center">
-                    <span className="number d-flex justify-content-center align-items-center">
-                      21
-                    </span>
-                    <span className="day">Chủ nhật</span>
+                  <div className="cinema-time">
+                    {movieDetail.heThongRapChieu?.map((item, index) => {
+                      return item.cumRapChieu.map((item2) => {
+                        return (
+                          <div key={index} className="wrapper">
+                            <div className="address d-flex">
+                              <img src={item.logo} alt="address" />
+                              <div className="address-title d-flex flex-column">
+                                <h4>{item2.tenCumRap}</h4>
+                                <span>{item2.diaChi}</span>
+                              </div>
+                            </div>
+                            <h3>2D Phụ đề</h3>
+                            <div className="movie-time">
+                              {item2.lichChieuPhim.map((item3) => {
+                                return (
+                                  <button style={{ width: "200px" }}>
+                                    {item3.ngayChieuGioChieu}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        );
+                      });
+                    })}
                   </div>
                 </div>
-              </div>
-
-              <div className="cinema d-flex">
-                {movieDetail.heThongRapChieu?.map((item, index) => {
-                  return (
-                    <div key={index}>
-                      <div className="wrapper d-flex justify-content-start">
-                        <div className="cinema-btn d-flex justify-content-between align-items-center flex-column ">
-                          <div className="cinema-wrapper">
-                            <img src={item.logo} alt="cinema" />
-                          </div>
-                          <span>{item.maHeThongRap}</span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="cinema-time">
-                {movieDetail.heThongRapChieu?.map((item, index) => {
-                  // let key;
-                  // for (let key in item.cumRapChieu) {
-                  //   item.cumRapChieu[key].tenCumRap;
-                  // }
-                  return (
-                    <div className="wrapper">
-                      <div className="address d-flex">
-                        <img src={item.logo} alt="address" />
-                        <div className="address-title d-flex flex-column">
-                          <h4>{item.tenHeThongRap}</h4>
-                          <span>{item.cumRapChieu[0].diaChi}</span>
-                        </div>
-                      </div>
-                      <h3>2D Phụ đề</h3>
-                      <div className="movie-time">
-                        <button style={{ width: "200px" }}>
-                          {
-                            // item.cumRapChieu[index].lichChieuPhim[i]
-                            //   .ngayChieuGioChieu
-                          }
-                        </button>
-                      </div>
-                      {/* <div>
-                          {
-                            item.cumRapChieu[index].lichChieuPhim[index + 1]
-                              .maLichChieu
-                          }
-                        </div> */}
-                    </div>
-                  );
-                })}
-              </div>
+              ) : (
+                <div
+                  style={{
+                    textAlign: "center",
+                    border: "1px solid #e0e0e0",
+                    padding: "30px",
+                    paddingTop: "0",
+                  }}
+                >
+                  <img
+                    src="https://static.mservice.io/next-js/_next/static/public/cinema/not-found.svg"
+                    alt="error"
+                  />
+                  <h4
+                    style={{
+                      fontSize: "1rem",
+                      lineHeight: " 1.75rem",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Úi, hôm nay chưa có suất chiếu
+                  </h4>
+                  <span style={{ fontSize: ".8rem", lineHeight: " 1.25rem" }}>
+                    Bạn hãy thử tìm phim khác nhé
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -176,45 +214,28 @@ function FlimTicket() {
               </div>
               <div className="related">
                 <h3>Phim đang chiếu</h3>
-                <div className="related-item">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fcinema%2Fs256x384%2Fmomo-cdn-api-220615131921-637908959613939882.jpg&w=384&q=75"
-                    alt="pic"
-                  />
-                  <a href="#">
-                    <div className="age">13+</div>
-                    <div className="related-title">
-                      Thám Tử Lừng Danh Conan: Nàng Dâu Halloween
+
+                {nowList.map((item, index) => {
+                  return (
+                    <div key={index} className="related-item">
+                      <img src={item.hinhAnh} alt="pic" />
+                      <div className="film-related">
+                        <div className="related-title">{item.tenPhim}</div>
+                        <div className="age">
+                          Đánh giá: {item.danhGia}
+                          <span>/10</span>
+                        </div>
+                        <a
+                          href={`${item.maPhim}`}
+                          className="btn-ticket"
+                          type="button"
+                        >
+                          Mua vé
+                        </a>
+                      </div>
                     </div>
-                    <span>Hoạt Hình, Hình Sự</span>
-                  </a>
-                </div>
-                <div className="related-item">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fcinema%2Fs256x384%2Fmomo-cdn-api-220615131921-637908959613939882.jpg&w=384&q=75"
-                    alt="pic"
-                  />
-                  <a href="#">
-                    <div className="age">13+</div>
-                    <div className="related-title">
-                      Thám Tử Lừng Danh Conan: Nàng Dâu Halloween
-                    </div>
-                    <span>Hoạt Hình, Hình Sự</span>
-                  </a>
-                </div>
-                <div className="related-item">
-                  <img
-                    src="https://momo.vn/_next/image?url=https%3A%2F%2Fstatic.mservice.io%2Fcinema%2Fs256x384%2Fmomo-cdn-api-220615131921-637908959613939882.jpg&w=384&q=75"
-                    alt="pic"
-                  />
-                  <a href="#">
-                    <div className="age">13+</div>
-                    <div className="related-title">
-                      Thám Tử Lừng Danh Conan: Nàng Dâu Halloween
-                    </div>
-                    <span>Hoạt Hình, Hình Sự</span>
-                  </a>
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
