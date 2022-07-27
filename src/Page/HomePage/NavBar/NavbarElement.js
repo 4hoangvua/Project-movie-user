@@ -63,7 +63,7 @@ export const NavItem = styled.a`
   text-align: center;
   color: ${({ theme }) => theme.c.primary};
   opacity: 1;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 export const NavContainer = styled.div`
   display: flex;

@@ -103,7 +103,7 @@ const SearchMovie = () => {
                     {movie.lstLichChieuTheoPhim.map((time, index) => {
                       if (index > 2) return;
                       return (
-                        <ItemTime key={index}>
+                        <ItemTime key={index} to={`ticket/${time.maLichChieu}`}>
                           <>
                             <ItemDate>
                               {dayjs(time.ngayChieuGioChieu).format(

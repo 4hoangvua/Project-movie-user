@@ -5,7 +5,7 @@ import Layout from "./Page/Login/Layout";
 import LoginHead from "./Page/Login/LoginHead";
 import LoginForm from "./Page/Login/LoginForm";
 import Detail from "./Page/DetailPage";
-
+import Ticket from "./Page/Ticket";
 function App() {
   return (
     <Router>
@@ -21,6 +21,7 @@ function App() {
           }
         />
         <Route path="detail/:maPhim" element={<Detail />}></Route>
+        <Route path="ticket/:id" element={<Ticket />} />
       </Routes>
       <GlobalStyles />
     </Router>

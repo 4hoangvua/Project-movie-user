@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../../common/device";
+import { Link } from "react-router-dom";
 export const ContainerShowTime = styled.div`
   height: 45rem;
   background: #fff;
@@ -154,10 +155,13 @@ export const ItemTime = styled.div`
     transform: scale(1.08);
   }
 `;
-export const Item = styled.div`
-  font-size: small;
+export const Item = styled(Link)`
+  font-size: 0.8rem;
   border: 5px solid ${({ theme }) => theme.bg.primary};
-  border-radius: 0.625rem;
+  border-radius: 10px;
+  padding: 5px;
+  display: block;
+  text-decoration: none;
 `;
 export const Col = styled.div`
   padding: 5px;

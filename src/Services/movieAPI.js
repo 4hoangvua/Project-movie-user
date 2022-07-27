@@ -41,5 +41,12 @@ const movieAPI = {
       },
     });
   },
+  getInfoTicket: (timeTheater) => {
+    return axiosClient.get("QuanLyDatVe/LayDanhSachPhongVe", {
+      params: {
+        maLichChieu: timeTheater,
+      },
+    });
+  },
 };
 export default movieAPI;

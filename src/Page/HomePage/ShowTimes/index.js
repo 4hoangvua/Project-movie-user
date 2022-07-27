@@ -97,7 +97,7 @@ const ShowTimes = () => {
                         return (
                           <ItemTime key={index}>
                             <Col>
-                              <Item>
+                              <Item to={`ticket/${time.maLichChieu}`}>
                                 {
                                   <>
                                     <ItemDate>

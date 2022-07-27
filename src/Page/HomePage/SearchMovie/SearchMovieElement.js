@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../../../common/device";
 export const ContainerSearch = styled.div`
@@ -90,9 +91,11 @@ export const ShowTimeTheaters = styled.div`
   justify-content: center;
   align-items: left;
 `;
-export const ItemTime = styled.div`
+export const ItemTime = styled(Link)`
   flex: 1;
   font-size: 0.8rem;
+  display: block;
+  text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 5px;

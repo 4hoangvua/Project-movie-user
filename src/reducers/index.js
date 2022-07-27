@@ -5,7 +5,7 @@ import listLogo from "./showTime";
 import users from "./user";
 import movieDetail from "./movieDetail";
 import listFilm from "./listFilm";
-
+import tickets from "./ticket";
 const rootReducer = combineReducers({
   ban: banner,
   movie: listMovie,
@@ -13,5 +13,6 @@ const rootReducer = combineReducers({
   user: users,
   movieD: movieDetail,
   listFilm: listFilm,
+  ticket: tickets,
 });
 export default rootReducer;

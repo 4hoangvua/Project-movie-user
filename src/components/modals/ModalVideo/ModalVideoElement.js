@@ -27,5 +27,5 @@ export const CloseModalButton = styled(AiOutlineClose)`
   top: -3.125rem;
   right: -3.125rem;
   font-size: 3rem;
-  color: ${({ theme }) => theme.c.primary};
+  color: #63637a;
 `;

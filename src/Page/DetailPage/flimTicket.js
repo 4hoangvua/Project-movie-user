@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import "./filmTicket.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getDanhSachPhim } from "../../reducers/listFilm";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
 function FlimTicket() {
   // const {} = useSelector((state) => state.movieD);
@@ -21,9 +26,8 @@ function FlimTicket() {
   }, []);
 
   const list = listMovie.filter((item, index) => {
-    return item.dangChieu == true;
+    return item.dangChieu === true;
   });
-  console.log(listHeThongRap);
 
   const nowList = list.slice(0, 4);
   return (
@@ -114,11 +118,16 @@ function FlimTicket() {
                             </div>
                             <h3>2D Phụ đề</h3>
                             <div className="movie-time">
-                              {item2.lichChieuPhim.map((item3) => {
+                              {item2.lichChieuPhim.map((item3, index) => {
                                 return (
-                                  <button style={{ width: "200px" }}>
+                                  <NavLink
+                                    key={index}
+                                    className="button-link"
+                                    to={`/ticket/${item3.maLichChieu}`}
+                                    style={{ width: "200px" }}
+                                  >
                                     {item3.ngayChieuGioChieu}
-                                  </button>
+                                  </NavLink>
                                 );
                               })}
                             </div>
