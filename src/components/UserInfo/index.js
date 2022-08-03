@@ -4,7 +4,6 @@ import ModalLogin from "../modals/ModalLogin";
 import { LogoLogout, Name } from "./UserInfoElement";
 const UserInfo = ({ userLogin }) => {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <LogoLogout onClick={() => setShowModal(!showModal)} />

@@ -41,7 +41,7 @@ const userSlice = createSlice({
   reducers: {
     deleteUserLoginAdmin: (state) => {
       state.userLogin = null;
-      localStorage.removeItem("userAdmin");
+      localStorage.removeItem("user");
     },
   },
   extraReducers: {
