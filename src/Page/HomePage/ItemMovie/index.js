@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import ModelVideo from "../../../components/modals/ModalVideo";
 import {
@@ -19,7 +19,6 @@ const ItemMovie = ({ movie }) => {
   let starts = [];
   const [showHover, setShowHover] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const dispatch = useDispatch();
   const loopStart = (length) => {
     for (let i = 0; i < length; i++) {
       starts.push(i);
@@ -54,12 +53,30 @@ const ItemMovie = ({ movie }) => {
             <ContainerContent>
               <DescStart>
                 {movie.danhGia}.
-                {starts.map((start, index) => (
-                  <LogoStart key={index} />
-                ))}
+                {starts.map((start, index) => {
+                  if (index > 9) {
+                    return;
+                  } else {
+                    return (
+                      <span key={index}>
+                        {index === 9 ? (
+                          <>
+                            <LogoStart /> ...
+                          </>
+                        ) : (
+                          <LogoStart />
+                        )}
+                      </span>
+                    );
+                  }
+                })}
               </DescStart>
-              <Content nameMovie={movie.tenPhim}>
-                <p>{movie.tenPhim.toUpperCase()}</p>
+              <Content>
+                <abbr title={movie.tenPhim}>
+                  {movie.tenPhim.toUpperCase().length > 30
+                    ? movie.tenPhim.toUpperCase().substring(0, 30) + "..."
+                    : movie.tenPhim.toUpperCase()}
+                </abbr>
               </Content>
             </ContainerContent>
           </CardContent>

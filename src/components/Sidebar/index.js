@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { AiOutlineHome, AiOutlineClockCircle } from "react-icons/ai";
 import { RiCommunityFill, RiCompassDiscoverLine } from "react-icons/ri";
 import {
@@ -7,8 +8,12 @@ import {
   SideLogo,
   SideItem,
   SideLogin,
+  LogoLogin,
+  SideLogout,
 } from "./SidebarElement";
+import UserInfo from "../UserInfo";
 const Sidebar = () => {
+  const { userLogin } = useSelector((state) => state.sig);
   return (
     <>
       <SideMenu>
@@ -47,7 +52,20 @@ const Sidebar = () => {
             </a>
           </SideItem>
           <SideItem>
-            <SideLogin to="signin">Login</SideLogin>
+            {userLogin === null ? (
+              <>
+                <SideLogin to="signin">
+                  <LogoLogin />
+                  Login
+                </SideLogin>
+              </>
+            ) : (
+              <>
+                <SideLogout>
+                  <UserInfo userLogin={userLogin} />
+                </SideLogout>
+              </>
+            )}
           </SideItem>
         </SideList>
       </SideMenu>

@@ -14,6 +14,13 @@ export const getInfoTicket = createAsyncThunk(
     return data;
   }
 );
+export const actionBooking = createAsyncThunk(
+  "ticket/actionBooking",
+  async (data) => {
+    console.log(data);
+    return await movieAPI.actionBooking(data);
+  }
+);
 const ticketSlice = createSlice({
   name: "ticket",
   initialState: inititalState,
@@ -38,7 +45,10 @@ const ticketSlice = createSlice({
     [getInfoTicket.fulfilled]: (state, { payload }) => {
       state.tickets = payload;
     },
+    [actionBooking.rejected]: (state, { payload }) => {
+      alert(payload);
+    },
   },
 });
-export const { clickChair } = ticketSlice.actions;
+export const { clickChair, successBooking, checkBooking } = ticketSlice.actions;
 export default ticketSlice.reducer;

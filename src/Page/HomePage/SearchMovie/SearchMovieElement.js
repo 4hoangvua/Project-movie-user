@@ -8,12 +8,16 @@ export const ContainerSearch = styled.div`
 export const InputSearch = styled.input`
   font-size: 1rem;
   color: ${({ theme }) => theme.c.primary};
+  caret-color: rgb(0, 200, 0);
   width: 100%;
+  padding-left: 0.625rem;
+  border-radius: 0.625rem;
   border: 1px solid transparent;
+  background: #e9e8ec;
   margin-bottom: 5px;
   &:focus {
     outline: none;
-    border: 1px solid ${({ theme }) => theme.c.primary};
+    /* border: 1px solid ${({ theme }) => theme.c.primary}; */
   }
 `;
 
@@ -39,29 +43,32 @@ export const ItemSMovie = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: right;
-  align-items: right;
+  align-items: center;
   width: 100%;
-  height: 12.5rem;
+  height: auto;
   margin-bottom: 1rem;
   background: #fff;
   border-radius: 10px;
   padding: 0 5px;
   @media ${device.tablet} {
     box-sizing: content-box;
-    height: 20rem;
-    margin-bottom: unset;
   }
   @media ${device.mobileK} {
-    height: 27rem;
+    height: unset;
   }
+`;
+export const CImg = styled.div`
+  width: 8rem;
+  height: 10rem;
 `;
 export const ImgMovie = styled.img.attrs((props) => ({
   src: props.linkImage,
   alt: props.descImage,
 }))`
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+  border-radius: 0.625rem;
   @media ${device.mobileK} {
     width: 100%;
   }
@@ -71,12 +78,10 @@ export const ContentMovie = styled.div`
   padding-top: 5px;
 `;
 export const Selected = styled.select`
-  width: 100%;
-  margin-bottom: 0.625rem;
   font-size: 1rem;
-  font-weight: bold;
-  color: ${({ theme }) => theme.c.primary};
+  margin-bottom: 0.625rem;
 `;
+
 export const Option = styled.option`
   font-size: 1rem;
 `;

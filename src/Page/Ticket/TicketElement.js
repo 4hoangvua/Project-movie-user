@@ -12,17 +12,19 @@ export const ContainerTicket = styled.div`
   align-items: left;
 `;
 export const InfoTheater = styled.div`
-  width: 40%;
+  width: 35%;
   height: 31.25rem;
+  margin-left: 0.625rem;
 `;
 export const ContainerListChair = styled.div`
-  width: 60%;
+  width: 65%;
 `;
 export const NavLogo = styled(Link)`
+  font-size: 2rem;
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  width: 8rem;
+  width: 15rem;
   cursor: pointer;
   text-decoration: none;
   color: unset;
@@ -32,8 +34,20 @@ export const NavLogo = styled(Link)`
 `;
 export const Logo = styled(RiMovie2Line)`
   color: #d6413a;
-  font-size: 1.875rem;
+  font-size: 3rem;
 `;
 export const Content = styled.p`
   margin-top: 5px;
+`;
+export const NavLogin = styled.div`
+  display: flex;
+  background: #d6413a;
+  border-radius: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.625rem;
+`;
+export const Nav = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

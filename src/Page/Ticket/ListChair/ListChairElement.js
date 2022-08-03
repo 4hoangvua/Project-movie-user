@@ -30,6 +30,7 @@ export const ContainerList = styled.div`
   flex-wrap: wrap;
   justify-content: left;
   align-items: left;
+  background: #e0e5ec;
 `;
 export const Info = styled.div`
   /* width: 100%; */
@@ -43,5 +44,5 @@ export const ContainerInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3.125rem;
+  margin: 3.125rem;
 `;

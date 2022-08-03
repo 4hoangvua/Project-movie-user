@@ -6,7 +6,7 @@ export const ContainerMovie = styled.div`
   width: 25%;
   margin-bottom: 1rem;
   cursor: pointer;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: 50%;
   }
 `;
@@ -21,6 +21,9 @@ export const ColCard = styled.div`
     opacity: 0.8;
     transition: 0.3s ease;
   }
+  @media ${device.laptop} {
+    height: 20rem;
+  }
 `;
 export const CardImg = styled.div`
   position: relative;
@@ -33,8 +36,10 @@ export const CardImg = styled.div`
     rgba(159, 179, 191, 0.12) 0px 4px 6px,
     rgba(159, 179, 191, 0.17) 0px 12px 13px,
     rgba(159, 179, 191, 0.09) 0px -3px 5px;
-  height: 75%;
-  /* overflow: hidden; */
+  height: 60%;
+  @media ${device.laptop} {
+    height: 75%;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -44,13 +49,16 @@ export const CardImg = styled.div`
 `;
 export const CardContent = styled.div`
   position: relative;
-  height: 25%;
+  height: 40%;
   border: 1px solid rgba(159, 179, 191, 0.5);
   border-top-color: transparent;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
   padding: 5px 10px;
+  @media ${device.laptop} {
+    height: 25%;
+  }
 `;
 export const LogoStart = styled(AiOutlineStar)`
   color: ${({ theme }) => theme.c.start};
@@ -74,8 +82,8 @@ export const CardBooking = styled.div`
 `;
 export const Booking = styled(Link)`
   text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.625rem;
   display: block;
   width: 100%;
   border: transparent;
@@ -103,27 +111,22 @@ export const ContainerContent = styled.div`
   justify-content: space-between;
   align-items: left;
 `;
-export const Content = styled.abbr.attrs((props) => ({
-  title: props.nameMovie,
-}))`
+export const Content = styled.span`
+  text-align: center;
   padding-top: 5px;
-  height: 50%;
-  font-size: 0.8rem;
-  font-weight: bold;
+  height: 70%;
+  font-size: 1rem;
+  font-weight: 500;
+  overflow: hidden;
   color: ${({ theme }) => theme.c.primary};
-  font-style: italic;
-  &[title] {
+  & > abbr[title] {
+    border-bottom: none !important;
+    cursor: inherit !important;
     text-decoration: none !important;
-    cursor: default !important;
-  }
-  p {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 `;
 export const DescStart = styled.span`
-  height: 50%;
+  height: 30%;
   font-size: 1rem;
   padding-right: 5px;
   color: ${({ theme }) => theme.c.secondary};

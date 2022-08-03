@@ -1,19 +1,18 @@
 import React from "react";
 import ItemChair from "../ItemChair";
+import { ButtonChair, Chair } from "../ItemChair/ItemChairElement";
+import { ContainerList, ContainerInfo, Info } from "./ListChairElement";
 
-import {
-  ButtonChair,
-  ContainerList,
-  Chair,
-  ContainerInfo,
-  Info,
-} from "./ListChairElement";
 const ListChair = ({ ticketChair }) => {
   return (
     <>
       <ContainerList>
         {ticketChair.map((ticket, index) => {
-          return <ItemChair key={index} ticket={ticket} />;
+          return (
+            <ItemChair key={index} ticket={ticket}>
+              {(index + 1) % 16 === 0 ? <br /> : ""}
+            </ItemChair>
+          );
         })}
       </ContainerList>
       <ContainerInfo>

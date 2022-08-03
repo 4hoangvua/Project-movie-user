@@ -6,12 +6,15 @@ import LoginHead from "./Page/Login/LoginHead";
 import LoginForm from "./Page/Login/LoginForm";
 import Detail from "./Page/DetailPage";
 import Ticket from "./Page/Ticket";
+import Login from "./Page/Login1";
+import Register from "./Page/register";
+import ModalAccount from "./components/modals/ModalAccount";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomeTemplates />} />
-        <Route
+        {/* <Route
           path="signin"
           element={
             <Layout>
@@ -19,9 +22,12 @@ function App() {
               <LoginForm />
             </Layout>
           }
-        />
+        /> */}
+        <Route path="/signin" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="detail/:maPhim" element={<Detail />}></Route>
         <Route path="ticket/:id" element={<Ticket />} />
+        <Route path="history/:taiKhoan" element={<ModalAccount />} />
       </Routes>
       <GlobalStyles />
     </Router>

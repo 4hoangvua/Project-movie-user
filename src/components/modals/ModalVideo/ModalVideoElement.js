@@ -11,7 +11,7 @@ export const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 500;
 `;
 export const ModalWrapper = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const ModalWrapper = styled.div`
   height: 28.125rem;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
-  z-index: 999;
+  z-index: 500;
 `;
 export const CloseModalButton = styled(AiOutlineClose)`
   cursor: pointer;

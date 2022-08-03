@@ -11,6 +11,25 @@ export const theme = {
   },
 };
 const GlobalStyles = createGlobalStyle`
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${theme.c.primary}; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
     body{
         margin: 0;
         padding: 0;
@@ -18,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         font-family: 'Encode Sans Expanded',sans-serif;
         background: ${theme.bg.primary}
+        
 
     }
     html{

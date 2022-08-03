@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import {
   ContainterInfo,
@@ -30,19 +29,31 @@ import {
   ItemHour,
 } from "./InfoTicketElement";
 import ModalCheck from "../../../components/modals/ModalCheck";
-const InfoTicket = ({ ticketInfo }) => {
+import { actionBooking, getInfoTicket } from "../../../reducers/ticket";
+const InfoTicket = ({ ticketInfo, id }) => {
   const { priceTicket, chair, selectedSeat } = useSelector(
     (state) => state.ticket
   );
-  const { userLogin } = useSelector((state) => state.user);
+  const { userLogin } = useSelector((state) => state.sig);
   const [showModal, setShowModal] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
-  const location = useLocation();
+  const dispatch = useDispatch();
   const handleSubmit = () => {
     if (selectedSeat.length > 0) {
       setIsCheck(!isCheck);
+      handleTicket();
     }
     setShowModal(!showModal);
+  };
+  const handleTicket = async () => {
+    const data = {
+      maLichChieu: ticketInfo.maLichChieu,
+      danhSachVe: [],
+    };
+    for (let seat of selectedSeat) {
+      data.danhSachVe.push({ maGhe: seat.maGhe, giaVe: seat.giaVe });
+    }
+    dispatch(actionBooking(data));
   };
   return (
     <ContainterInfo>
@@ -85,12 +96,15 @@ const InfoTicket = ({ ticketInfo }) => {
         {userLogin !== null ? (
           isCheck ? (
             <>
-              <ModalCheck showModal={showModal} setShowModal={setShowModal}>
-                Đặt vé thành công !
+              <ModalCheck
+                showModal={showModal}
+                setShowModal={setShowModal}
+                ticket={true}
+              >
+                Bạn đặt{" "}
+                {chair.length == 0 ? "" : "Ghế " + chair.join(" , Ghế ")} thành
+                công. Xem chi tiết tại Login !
               </ModalCheck>
-              {window.location.replace(
-                `http://localhost:3000${location.pathname}`
-              )}
             </>
           ) : (
             <ModalCheck showModal={showModal} setShowModal={setShowModal}>

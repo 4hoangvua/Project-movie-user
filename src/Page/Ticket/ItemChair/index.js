@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clickChair } from "../../../reducers/ticket";
 import { ButtonChair, Chair } from "./ItemChairElement";
 const ItemChair = ({ ticket }) => {
@@ -9,6 +9,7 @@ const ItemChair = ({ ticket }) => {
     dispatch(clickChair({ ...ticket, selected: !isSelected }));
     setIsSelected(!isSelected);
   };
+
   return (
     <>
       <ButtonChair

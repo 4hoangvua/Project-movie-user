@@ -1,9 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import { AiOutlineLogin } from "react-icons/ai";
+import { HiOutlineLogin } from "react-icons/hi";
 export const SideMenu = styled.div`
   & > p {
     font-size: 1rem;
-    color: ${({ theme }) => theme.c.primary};
+    color: #63637a;
     opacity: 0.7;
   }
 `;
@@ -13,7 +15,7 @@ export const SideList = styled.ul`
 `;
 export const SideLogo = styled.div`
   font-size: 1.5625rem;
-  color: ${({ theme }) => theme.c.primary};
+  color: #63637a;
   opacity: 0.7;
 `;
 export const SideItem = styled.li`
@@ -23,7 +25,7 @@ export const SideItem = styled.li`
   align-items: center;
   & > a {
     text-decoration: none;
-    color: ${({ theme }) => theme.c.primary};
+    color: #63637a;
     opacity: 0.7;
     margin-top: 1.3125rem;
     font-size: 1rem;
@@ -32,17 +34,17 @@ export const SideItem = styled.li`
 
   &:hover {
     a {
-      color: ${({ theme }) => theme.c.primary};
+      color: #63637a;
       opacity: 1;
       transition: 0.3s ease;
     }
     ${SideLogo} {
-      color: ${({ theme }) => theme.c.secondary};
+      color: #d6413a;
     }
   }
 `;
 
-export const SideLogin = styled(Link)`
+export const Side = css`
   text-decoration: none;
   padding: 10px 10px;
   border-radius: 10px;
@@ -58,4 +60,20 @@ export const SideLogin = styled(Link)`
     opacity: 1;
     color: #fff;
   }
+`;
+export const SideLogin = styled(Link)`
+  ${Side}
+`;
+export const SideLogout = styled.div`
+  ${Side}
+  cursor: pointer;
+  display: flex;
+`;
+export const LogoLogin = styled(AiOutlineLogin)`
+  font-size: 2rem;
+  margin-right: 0.625rem;
+`;
+export const LogoLogout = styled(HiOutlineLogin)`
+  font-size: 2rem;
+  margin-right: 0.625rem;
 `;

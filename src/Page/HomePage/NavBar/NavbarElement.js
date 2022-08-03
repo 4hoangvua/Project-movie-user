@@ -5,13 +5,14 @@ import { device } from "../../../common/device";
 export const Nav = styled.div`
   display: flex;
   justify-content: left;
-  align-items: flex-start;
+  align-items: center;
 `;
 export const NavLogo = styled.div`
   display: flex;
   justify-content: left;
   align-items: flex-start;
   width: 30%;
+  /* border-bottom: 1px solid transparent; */
 `;
 export const Logo = styled(RiMovie2Line)`
   width: 50%;

@@ -10,11 +10,16 @@ import {
   NavLogo,
   Logo,
   Content,
+  Nav,
+  NavLogin,
 } from "./TicketElement";
 import { getInfoTicket } from "../../reducers/ticket";
 import { useParams } from "react-router-dom";
+import UserInfo from "../../components/UserInfo";
 const Ticket = () => {
   const { tickets } = useSelector((state) => state.ticket);
+  const { userLogin } = useSelector((state) => state.sig);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,16 +28,21 @@ const Ticket = () => {
   if (tickets.length === 0) return;
   return (
     <Container>
-      <NavLogo to="/">
-        <Logo />
-        <Content>Exxmon</Content>
-      </NavLogo>
+      <Nav>
+        <NavLogo to="/">
+          <Logo />
+          <Content>Exxmon</Content>
+        </NavLogo>
+        <NavLogin>
+          <UserInfo userLogin={userLogin} />
+        </NavLogin>
+      </Nav>
       <ContainerTicket>
         <ContainerListChair>
           <ListChair ticketChair={tickets.danhSachGhe} />
         </ContainerListChair>
         <InfoTheater>
-          <InfoTicket ticketInfo={tickets.thongTinPhim} />
+          <InfoTicket ticketInfo={tickets.thongTinPhim} id={id} />
         </InfoTheater>
       </ContainerTicket>
     </Container>

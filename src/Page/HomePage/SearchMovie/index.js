@@ -17,6 +17,7 @@ import {
   ItemTime,
   ItemDate,
   ItemHour,
+  CImg,
 } from "./SearchMovieElement";
 const SearchMovie = () => {
   const { listTheaterInfo } = useSelector((state) => state.show);
@@ -72,7 +73,11 @@ const SearchMovie = () => {
           placeholder="Enter movie..."
         />
       </Search>
-      <Selected onChange={handleSelected}>
+      <Selected
+        className="form-select"
+        aria-label="Default select example"
+        onChange={handleSelected}
+      >
         {listTheaterInfo.map((list, index) => {
           return (
             <Option value={index} key={index}>
@@ -81,7 +86,11 @@ const SearchMovie = () => {
           );
         })}
       </Selected>
-      <Selected onChange={handleSelected1}>
+      <Selected
+        className="form-select"
+        aria-label="Default select example"
+        onChange={handleSelected1}
+      >
         {isSelected?.map((list, index) => {
           return (
             <Option value={index} key={index}>
@@ -96,7 +105,12 @@ const SearchMovie = () => {
             // if (index > 7) return;
             return (
               <ItemSMovie key={index}>
-                <ImgMovie linkImage={movie.hinhAnh} descImage={movie.tenPhim} />
+                <CImg>
+                  <ImgMovie
+                    linkImage={movie.hinhAnh}
+                    descImage={movie.tenPhim}
+                  />
+                </CImg>
                 <ContentMovie>
                   <Title>{movie.tenPhim}</Title>
                   <ShowTimeTheaters>

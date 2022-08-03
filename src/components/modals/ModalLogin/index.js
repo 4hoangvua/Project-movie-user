@@ -1,24 +1,28 @@
 import React from "react";
-import { Background, CloseModalButton } from "../ModalVideo/ModalVideoElement";
+import { useDispatch } from "react-redux";
+import { deleteUserLoginAdmin } from "../../../reducers/singin";
 import {
   ReactCheck,
   CModalCheck,
   ButtonCheck,
   Title,
   ButtonLogin,
-} from "./ModalCheckElement";
-
-const ModalCheck = ({ children, showModal, setShowModal, lognin, ticket }) => {
+  Background,
+  CloseModalButton,
+} from "./ModalLoginElement";
+const ModalLogin = ({ children, showModal, setShowModal, lognin }) => {
+  const dispatch = useDispatch();
   const handleClose = () => {
-    if (ticket) {
-      window.location.reload();
-    }
+    setShowModal(!showModal);
+  };
+  const handleDeleteLocalStore = () => {
+    dispatch(deleteUserLoginAdmin());
     setShowModal(!showModal);
   };
   return (
     <>
       {showModal ? (
-        <Background onClick={handleClose}>
+        <Background>
           <CModalCheck>
             <CloseModalButton onClick={handleClose} />
             <ReactCheck>
@@ -27,7 +31,9 @@ const ModalCheck = ({ children, showModal, setShowModal, lognin, ticket }) => {
                 <ButtonLogin to="/signin">Đồng ý</ButtonLogin>
               ) : (
                 <>
-                  <ButtonCheck onClick={handleClose}>Đã hiểu</ButtonCheck>
+                  <ButtonCheck onClick={handleDeleteLocalStore}>
+                    Đồng ý
+                  </ButtonCheck>
                 </>
               )}
             </ReactCheck>
@@ -38,4 +44,4 @@ const ModalCheck = ({ children, showModal, setShowModal, lognin, ticket }) => {
   );
 };
 
-export default ModalCheck;
+export default ModalLogin;

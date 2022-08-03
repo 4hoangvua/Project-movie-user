@@ -6,6 +6,7 @@ import users from "./user";
 import movieDetail from "./movieDetail";
 import listFilm from "./listFilm";
 import tickets from "./ticket";
+import singin from "./singin";
 const rootReducer = combineReducers({
   ban: banner,
   movie: listMovie,
@@ -14,5 +15,6 @@ const rootReducer = combineReducers({
   movieD: movieDetail,
   listFilm: listFilm,
   ticket: tickets,
+  sig: singin,
 });
 export default rootReducer;

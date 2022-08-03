@@ -31,7 +31,7 @@ export const ColNameShowTime = styled.div`
   justify-content: left;
   align-items: center;
   scroll-behavior: smooth;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 export const ColShowTime = styled.div`
   width: 65%;
@@ -125,6 +125,7 @@ export const Image = styled.img.attrs((props) => ({
   width: 100%;
   height: 50%;
   object-fit: cover;
+  border-radius: 0.625rem;
 `;
 export const ItemContent = styled.div`
   width: 80%;
