@@ -33,9 +33,11 @@ const Ticket = () => {
           <Logo />
           <Content>Exxmon</Content>
         </NavLogo>
-        <NavLogin>
-          <UserInfo userLogin={userLogin} />
-        </NavLogin>
+        {userLogin === null ? null : (
+          <NavLogin>
+            <UserInfo userLogin={userLogin} />
+          </NavLogin>
+        )}
       </Nav>
       <ContainerTicket>
         <ContainerListChair>
