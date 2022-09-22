@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieAPI from "../Services/movieAPI";
+import { token } from "../Services/token";
 let user = null;
 if (localStorage.getItem("user")) {
   user = JSON.parse(localStorage.getItem("user"));
@@ -26,6 +27,7 @@ export const getInfoUser = createAsyncThunk(
   "userLogin/getInfoUser",
   async (account) => {
     const data = await movieAPI.getInfoUser(account);
+    console.log(data);
     return data;
   }
 );
@@ -63,7 +65,7 @@ const userSlice = createSlice({
       state.infoUser = payload;
     },
     [getInfoUser.rejected]: (state, { payload }) => {
-      alert(payload.message);
+      state.userLogin = { ...state.userLogin, accessToken: token };
     },
     [updateInfoUser.fulfilled]: (state, { payload }) => {
       const data = [...state.infoUser.thongTinDatVe];

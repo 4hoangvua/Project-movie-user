@@ -29,13 +29,13 @@ import { useEffect } from "react";
 import { getInfoUser, updateInfoUser } from "../../../reducers/singin";
 const ModalAccount = () => {
   const { taiKhoan } = useParams();
-  const { infoUser } = useSelector((state) => state.sig);
+  const { infoUser, userLogin } = useSelector((state) => state.sig);
   const [isPassword, setIsPassword] = useState(true);
   const dispatch = useDispatch();
   const isRef = useRef(false);
   useEffect(() => {
     dispatch(getInfoUser(taiKhoan));
-  }, []);
+  }, [userLogin]);
   useEffect(() => {
     if (!isRef.current) {
       isRef.current = true;
