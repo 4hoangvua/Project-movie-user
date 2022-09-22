@@ -45,9 +45,10 @@ export const ContenAccount = styled.div`
 `;
 export const ContentHistory = styled.div`
   height: 50%;
+  width: 100%;
+  overflow-y: auto;
 `;
 export const CColHis = styled.div`
-  overflow-y: auto;
   height: 100%;
 `;
 export const Row = styled.div`

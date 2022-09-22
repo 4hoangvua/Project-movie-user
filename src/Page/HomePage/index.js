@@ -18,6 +18,7 @@ import {
   LeftPage,
   ContainerShowTime,
 } from "./HomePageElement";
+import { resetToken } from "../../reducers/singin";
 const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,6 +26,7 @@ const HomePage = () => {
     dispatch(getListMovie());
 
     dispatch(getShowTimeTheaterInfo());
+    dispatch(resetToken());
   }, []);
   return (
     <>

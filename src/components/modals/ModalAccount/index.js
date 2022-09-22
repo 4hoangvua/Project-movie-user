@@ -26,7 +26,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { getInfoUser, updateInfoUser } from "../../../reducers/singin";
+import {
+  getInfoUser,
+  resetToken,
+  updateInfoUser,
+} from "../../../reducers/singin";
 const ModalAccount = () => {
   const { taiKhoan } = useParams();
   const { infoUser, userLogin } = useSelector((state) => state.sig);
@@ -41,6 +45,7 @@ const ModalAccount = () => {
       isRef.current = true;
       return;
     }
+
     setValue("taiKhoan", infoUser.taiKhoan);
     setValue("email", infoUser.email);
     setValue("matKhau", infoUser.matKhau);
@@ -48,7 +53,6 @@ const ModalAccount = () => {
     setValue("soDt", infoUser.soDT);
     setValue("maLoaiNguoiDung", infoUser.maLoaiNguoiDung);
   }, [infoUser]);
-
   const schema = object({
     taiKhoan: string()
       .required("Tài khoản không được để trống")
@@ -83,9 +87,7 @@ const ModalAccount = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (values) => {
-    console.log(values);
     dispatch(updateInfoUser(values));
-    dispatch();
   };
 
   if (Object.keys(infoUser).length === 0) return;
@@ -93,7 +95,7 @@ const ModalAccount = () => {
     <>
       <Background>
         <CModalAccount>
-          <NavLink to={"/"}>
+          <NavLink to="/">
             <CloseModalButton className="fixed-bottom" />
           </NavLink>
           <ReactAccount>
@@ -123,7 +125,7 @@ const ModalAccount = () => {
                       type="checkbox"
                       onClick={() => setIsPassword(!isPassword)}
                     />
-                    <small> Show password</small>
+                    <small className="fs-6"> Show password</small>
                     {errors.matKhau && (
                       <ErrorSpan>{errors.matKhau?.message}</ErrorSpan>
                     )}
@@ -176,19 +178,24 @@ const ModalAccount = () => {
                 </Row>
               </form>
             </ContenAccount>
-            <ContentHistory>
-              <h3>Lịch sử đặt vé</h3>
+            <ContentHistory className="text-center">
+              <h3 className=" w-100">Lịch sử đặt vé</h3>
               <CColHis>
-                <div className="d-flex text-dark">
+                <div className="row d-md-flex text-dark justify-content-md-center w-100">
                   {infoUser?.thongTinDatVe.map((user, index) => {
                     return (
-                      <div className="card w-50 p-2" key={user.maVe}>
-                        <img
-                          className="card-img-top text-center"
-                          src={user.hinhAnh}
-                          alt={user.name}
-                          style={{ width: "10rem", height: "12rem" }}
-                        />
+                      <div
+                        className="col-sm-4 card p-2 text-center"
+                        key={user.maVe}
+                      >
+                        <div>
+                          <img
+                            className="card-img-top "
+                            src={user.hinhAnh}
+                            alt={user.name}
+                            style={{ width: "10rem", height: "12rem" }}
+                          />
+                        </div>
                         <div className="card-body">
                           <h5 className="card-title text-danger">
                             Tên Phim: {user.tenPhim}

@@ -45,11 +45,12 @@ const InfoTicket = ({ ticketInfo, id }) => {
     }
     setShowModal(!showModal);
   };
-  const handleTicket = async () => {
+  const handleTicket = () => {
     const data = {
       maLichChieu: ticketInfo.maLichChieu,
       danhSachVe: [],
     };
+    console.log(selectedSeat);
     for (let seat of selectedSeat) {
       data.danhSachVe.push({ maGhe: seat.maGhe, giaVe: seat.giaVe });
     }

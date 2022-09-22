@@ -27,7 +27,6 @@ export const getInfoUser = createAsyncThunk(
   "userLogin/getInfoUser",
   async (account) => {
     const data = await movieAPI.getInfoUser(account);
-    console.log(data);
     return data;
   }
 );
@@ -44,6 +43,10 @@ const userSlice = createSlice({
     deleteUserLoginAdmin: (state) => {
       state.userLogin = null;
       localStorage.removeItem("user");
+    },
+    resetToken: (state) => {
+      const { accessToken } = JSON.parse(localStorage.getItem("user"));
+      state.userLogin = { ...state.userLogin, accessToken: accessToken };
     },
   },
   extraReducers: {
@@ -84,5 +87,5 @@ const userSlice = createSlice({
     },
   },
 });
-export const { deleteUserLoginAdmin } = userSlice.actions;
+export const { deleteUserLoginAdmin, resetToken } = userSlice.actions;
 export default userSlice.reducer;
