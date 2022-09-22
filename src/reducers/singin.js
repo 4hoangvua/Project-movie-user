@@ -45,7 +45,7 @@ const userSlice = createSlice({
       localStorage.removeItem("user");
     },
     resetToken: (state) => {
-      if (userLogin) {
+      if (state.userLogin) {
         const { accessToken } = JSON.parse(localStorage.getItem("user"));
         state.userLogin = { ...state.userLogin, accessToken: accessToken };
       }
