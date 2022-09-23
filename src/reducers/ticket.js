@@ -17,7 +17,6 @@ export const getInfoTicket = createAsyncThunk(
 export const actionBooking = createAsyncThunk(
   "ticket/actionBooking",
   async (data) => {
-    console.log(data);
     return await movieAPI.actionBooking(data);
   }
 );

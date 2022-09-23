@@ -53,6 +53,11 @@ const ModalAccount = () => {
     setValue("soDt", infoUser.soDT);
     setValue("maLoaiNguoiDung", infoUser.maLoaiNguoiDung);
   }, [infoUser]);
+  useEffect(() => {
+    return () => {
+      dispatch(resetToken());
+    };
+  }, []);
   const schema = object({
     taiKhoan: string()
       .required("Tài khoản không được để trống")

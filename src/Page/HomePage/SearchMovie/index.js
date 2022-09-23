@@ -55,7 +55,6 @@ const SearchMovie = () => {
       movie.tenPhim.toLowerCase().includes(nameMoive)
     );
     if (index !== -1) {
-      console.log("ok");
       setIsMovie([
         listTheaterInfo[theater.current].lstCumRap[movie.current].danhSachPhim[
           index

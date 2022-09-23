@@ -50,7 +50,6 @@ const InfoTicket = ({ ticketInfo, id }) => {
       maLichChieu: ticketInfo.maLichChieu,
       danhSachVe: [],
     };
-    console.log(selectedSeat);
     for (let seat of selectedSeat) {
       data.danhSachVe.push({ maGhe: seat.maGhe, giaVe: seat.giaVe });
     }
